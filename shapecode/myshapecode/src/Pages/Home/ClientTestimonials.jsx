@@ -15,19 +15,32 @@ const typedStrings = ['Client Testimonials'];
 
 
 export default function MySkills() {
-  const [startTyping, setStartTyping] = useState(false);
-  const [ref, inView] = useInView({
+  const [typedRef, typedInView] = useInView({
     triggerOnce: true,
     rootMargin: '0px 0px -50px 0px',
   });
 
+  const [startTyping, setStartTyping] = useState(false);
+
   useEffect(() => {
-    if (inView) {
+    if (typedInView) {
       setStartTyping(true);
-    } else {
-      setStartTyping(false);
     }
-  }, [inView]);
+  }, [typedInView]);
+
+
+  const [textRef, textInView] = useInView({
+    triggerOnce: true,
+    rootMargin: '0px 0px -50px 0px',
+  });
+  const [animateText, setAnimateText] = useState(false);
+
+
+  useEffect(() => {
+    if (textInView) {
+      setAnimateText(true);
+    }
+  }, [textInView]);
 
 
 
@@ -97,7 +110,7 @@ export default function MySkills() {
  <p className="client-upper-p"></p>
           </Typed> */}
        
-          <div ref={ref}>
+       <div ref={typedRef}>
           <Typed
             strings={typedStrings}
             typeSpeed={60}
@@ -116,7 +129,7 @@ export default function MySkills() {
 
 
         <h2 className="client-subhead">
-          Check out the &nbsp;<span className='client-text'>Feedback</span>
+        Check out the &nbsp;<span     ref={textRef} className={`client-text ${animateText ? 'visible' : ''}`}>Feedback</span>
           <br />
           from People I've worked with
         </h2>

@@ -39,24 +39,24 @@
         white-space: nowrap; /* Prevent line breaks */
         opacity: 0;
         transform: translateX(-100%);
-        transition: opacity 0.5s, transform 0.5s;
-        animation: slideInFromLeft 0.5s ease-in-out; /* Adjust the duration and timing function as needed */
 
         }
-        .about-text.slideInFromLeft {
-          opacity: 1;
-          transform: translateX(0); /* Move to the original position */
+        .about-text.visible {
+          animation: fadeIn 5s ease-in-out forwards; 
         }
-        @keyframes slideInFromLeft {
+        
+        @keyframes fadeIn {
           0% {
+            transform: translateX(-100%); 
             opacity: 0;
-            transform: translateX(-100%);
           }
           100% {
+            transform: translateX(0); 
             opacity: 1;
-            transform: translateX(0);
           }
         }
+        
+        
         
         
         

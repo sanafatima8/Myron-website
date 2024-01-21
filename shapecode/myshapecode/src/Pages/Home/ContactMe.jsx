@@ -24,25 +24,39 @@ import Typed from 'react-typed';
 const typedStrings = ['Get In Touch'];
 
 export default function ContactMe() {
-  const [startTyping, setStartTyping] = useState(false);
-  const [ref, inView] = useInView({
+  const [typedRef, typedInView] = useInView({
     triggerOnce: true,
     rootMargin: '0px 0px -50px 0px',
   });
 
+  const [startTyping, setStartTyping] = useState(false);
+
   useEffect(() => {
-    if (inView) {
+    if (typedInView) {
       setStartTyping(true);
-    } else {
-      setStartTyping(false);
     }
-  }, [inView]);
+  }, [typedInView]);
+
+
+  const [textRef, textInView] = useInView({
+    triggerOnce: true,
+    rootMargin: '0px 0px -50px 0px',
+  });
+  const [animateText, setAnimateText] = useState(false);
+
+
+  useEffect(() => {
+    if (textInView) {
+      setAnimateText(true);
+    }
+  }, [textInView]);
   
   return (
     <section id="Contact" className="contact--section">
       <div className="portfolio-contact-container">
-
-      <div ref={ref}>
+      
+      <div ref={typedRef}>
+      {startTyping && (
           <Typed
             strings={typedStrings}
             typeSpeed={60}
@@ -52,6 +66,7 @@ export default function ContactMe() {
             start={startTyping}
             className='contact-title'
           />
+            )}
         </div>
 
           
@@ -65,7 +80,7 @@ export default function ContactMe() {
       <div className="test">
 
         
-      <h2 className="col-title">Let's&nbsp;<span className='talk-sp'>Talk</span>
+      <h2 className="col-title">Let's&nbsp;<span ref={textRef} className={`talk-sp ${animateText ? 'visible' : ''}`}>Talk</span>
       <br />About your project
       </h2>
 

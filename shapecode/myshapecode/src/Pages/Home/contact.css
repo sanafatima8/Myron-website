@@ -83,7 +83,20 @@
     white-space: nowrap; /* Prevent line breaks */
   }
   
+  .talk-sp.visible {
+    animation: fadeIn 5s ease-in-out forwards; 
+  }
   
+  @keyframes fadeIn {
+    0% {
+      transform: translateX(-100%); 
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0); 
+      opacity: 1;
+    }
+  }
   
   .col-para {
     color: #FFFFFF;

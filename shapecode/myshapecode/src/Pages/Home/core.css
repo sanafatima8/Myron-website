@@ -43,20 +43,24 @@
     text-align: center !important;
     display: inline-block; /* Make it an inline block to use text-align */
     white-space: nowrap; /* Prevent line breaks */
-    animation: slideInFromLeft 2s ease-in-out forwards; /* Animation properties */
     opacity: 0; /* Initially set opacity to 0 */
   }
   
-  @keyframes slideInFromLeft {
+  .core-text.visible {
+    animation: fadeIn 5s ease-in-out forwards; 
+  }
+  
+  @keyframes fadeIn {
     0% {
-      transform: translateX(-100%); /* Start position outside the left edge */
+      transform: translateX(-100%); 
       opacity: 0;
     }
     100% {
-      transform: translateX(0); /* End position at the original position */
+      transform: translateX(0); 
       opacity: 1;
     }
   }
+  
   
   
   

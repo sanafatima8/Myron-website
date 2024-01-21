@@ -12,20 +12,33 @@ const typedStrings = ['Throughout the years I have fostered skills that help me 
 export default function AboutMe() {
 
   
-  const [startTyping, setStartTyping] = useState(false);
-  const [ref, inView] = useInView({
+
+  const [typedRef, typedInView] = useInView({
     triggerOnce: true,
     rootMargin: '0px 0px -50px 0px',
   });
 
-  useEffect(() => {
-    if (inView) {
-      setStartTyping(true);
-    } else {
-      setStartTyping(false);
-    }
-  }, [inView]);
+  const [startTyping, setStartTyping] = useState(false);
 
+  useEffect(() => {
+    if (typedInView) {
+      setStartTyping(true);
+    }
+  }, [typedInView]);
+
+
+  const [textRef, textInView] = useInView({
+    triggerOnce: true,
+    rootMargin: '0px 0px -50px 0px',
+  });
+  const [animateText, setAnimateText] = useState(false);
+
+
+  useEffect(() => {
+    if (textInView) {
+      setAnimateText(true);
+    }
+  }, [textInView]);
 
 
   
@@ -33,9 +46,10 @@ export default function AboutMe() {
     <section id="AboutMe" className="about--section">
       <div className="portfolio-about-container">
  <h2 className="about-title">
-      My&nbsp;
-      <span className='about-text slideInFromLeft'>Skills</span>
-    </h2>     
+      
+ My&nbsp;<span ref={textRef} className={`about-text ${animateText ? 'visible' : ''}`}>Skills</span>
+
+          </h2>     
     
 
     {/* <Typed
@@ -47,7 +61,9 @@ export default function AboutMe() {
               <p className="about--section--para"></p>
           </Typed>
       */}
-          <div ref={ref}>
+      
+         <div ref={typedRef}>
+          {startTyping && (
           <Typed
             strings={typedStrings}
             typeSpeed={60}
@@ -57,6 +73,7 @@ export default function AboutMe() {
             start={startTyping}
             className='about--section--para'
           />
+          )}
         </div>
 
         <div className="developer-container">

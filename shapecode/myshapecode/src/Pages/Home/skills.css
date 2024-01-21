@@ -43,7 +43,7 @@
   
   }
   
-  .skill-text {
+  .skill-subtext {
     background-image: linear-gradient(265deg, rgba(183, 151, 102, 1) 12%, rgba(141, 97, 29, 1) 63%);
     max-width: max-content;
     padding: 3px 10px;
@@ -54,11 +54,14 @@
     text-align: center !important;
     display: inline-block; 
     white-space: nowrap;
-    animation: slideInFromLeft 2s ease-in-out forwards; 
     opacity: 0;
   }
   
-  @keyframes slideInFromLeft {
+  .skill-subtext.visible {
+    animation: fadeIn 5s ease-in-out forwards; 
+  }
+  
+  @keyframes fadeIn {
     0% {
       transform: translateX(-100%); 
       opacity: 0;
@@ -68,7 +71,6 @@
       opacity: 1;
     }
   }
-  
   
   
   .skills--section--para {

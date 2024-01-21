@@ -26,20 +26,34 @@ const typedStrings = ['Education and Professional'];
 export default function MySkills() {
 
 
- 
-  const [startTyping, setStartTyping] = useState(false);
-  const [ref, inView] = useInView({
+  const [typedRef, typedInView] = useInView({
     triggerOnce: true,
     rootMargin: '0px 0px -50px 0px',
   });
 
+  const [startTyping, setStartTyping] = useState(false);
+
   useEffect(() => {
-    if (inView) {
+    if (typedInView) {
       setStartTyping(true);
-    } else {
-      setStartTyping(false);
     }
-  }, [inView]);
+  }, [typedInView]);
+
+
+  const [textRef, textInView] = useInView({
+    triggerOnce: true,
+    rootMargin: '0px 0px -50px 0px',
+  });
+  const [animateText, setAnimateText] = useState(false);
+
+
+  useEffect(() => {
+    if (textInView) {
+      setAnimateText(true);
+    }
+  }, [textInView]);
+
+
 
 
 
@@ -61,21 +75,21 @@ export default function MySkills() {
 
  */}
 
-          <div ref={ref}>
-          <Typed
-            strings={typedStrings}
-            typeSpeed={60}
-            backSpeed={30}
-            loop={false}
-            showCursor={false}
-            start={startTyping}
-            className='study-title'
-          />
+      <div ref={typedRef}>
+          {startTyping && (
+            <Typed
+              strings={typedStrings}
+              typeSpeed={60}
+              backSpeed={30}
+              loop={false}
+              showCursor={false}
+              className='study-title'
+            />
+          )}
         </div>
 
-
-        
-        &nbsp;<span className='study-text'>Timeline Story</span>
+        &nbsp;<span ref={textRef} className={`study-text ${animateText ? 'visible' : ''}`}>Timeline Story</span>
+       
        
         <p className="study--section--para">
           I have been writing code for longer than I have been designing, but here is a visual

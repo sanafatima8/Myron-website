@@ -349,11 +349,15 @@
     text-align: center !important;
     display: inline-block; 
     white-space: nowrap; 
-    animation: slideInFromLeft 2s ease-in-out forwards;
     opacity: 0; 
   }
   
-  @keyframes slideInFromLeft {
+   
+  .client-text.visible {
+    animation: fadeIn 5s ease-in-out forwards; 
+  }
+  
+  @keyframes fadeIn {
     0% {
       transform: translateX(-100%); 
       opacity: 0;
@@ -363,6 +367,8 @@
       opacity: 1;
     }
   }
+  
+    
   
   
   .client--section--para {

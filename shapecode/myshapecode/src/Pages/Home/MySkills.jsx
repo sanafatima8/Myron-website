@@ -15,20 +15,32 @@ const typedStrings = [' Throughout the years I have fostered skills that help me
 export default function MySkills() {
 
 
-  const [startTyping, setStartTyping] = useState(false);
-  const [ref, inView] = useInView({
+  const [typedRef, typedInView] = useInView({
     triggerOnce: true,
     rootMargin: '0px 0px -50px 0px',
   });
 
-  useEffect(() => {
-    if (inView) {
-      setStartTyping(true);
-    } else {
-      setStartTyping(false);
-    }
-  }, [inView]);
+  const [startTyping, setStartTyping] = useState(false);
 
+  useEffect(() => {
+    if (typedInView) {
+      setStartTyping(true);
+    }
+  }, [typedInView]);
+
+
+  const [textRef, textInView] = useInView({
+    triggerOnce: true,
+    rootMargin: '0px 0px -50px 0px',
+  });
+  const [animateText, setAnimateText] = useState(false);
+
+
+  useEffect(() => {
+    if (textInView) {
+      setAnimateText(true);
+    }
+  }, [textInView]);
 
 
 
@@ -70,20 +82,22 @@ export default function MySkills() {
     <section className="skills--section" id="Bento">
       <div className="portfolio-container">
 
-        <h2 className="section-title">
-          My&nbsp;<span className="skill-text">Services</span>
+      <h2 className="section-title">My
+      &nbsp;<span ref={textRef} className={`skill-subtext ${animateText ? 'visible' : ''}`}>Services</span>
         </h2>
+
         
-        <div ref={ref}>
-          <Typed
-            strings={typedStrings}
-            typeSpeed={60}
-            backSpeed={30}
-            loop={false}
-            showCursor={false}
-            start={startTyping}
-            className='skills--section--para'
-          />
+        <div ref={typedRef}>
+        {startTyping && (
+            <Typed
+              strings={typedStrings}
+              typeSpeed={60}
+              backSpeed={30}
+              loop={false}
+              showCursor={false}
+              className='skills--section--para'
+            />
+          )}
         </div>
 
         {/* <p className="skills--section--para">
