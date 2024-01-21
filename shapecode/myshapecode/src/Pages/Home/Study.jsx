@@ -7,7 +7,7 @@ import Lottie from 'react-lottie';
 import './study.css';
 
 
-import "react-vertical-timeline-component/style.min.css";
+import 'react-vertical-timeline-component/style.min.css';
 <div> Icons made by <a href="https://www.freepik.com" title="Freepik"> Freepik </a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com'</a></div>
 import data from "../../data/TimelineElements.json";
 import './verticaltimeline.css';
