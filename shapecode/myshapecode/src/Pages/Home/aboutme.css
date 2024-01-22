@@ -280,4 +280,14 @@
       margin-left: 0;
       margin-right: 0;
     }
+    .pro-f {
+    
+      height: 7px;
+      width: 60%!important;
+  
+    
+    }
+    .box {
+      width: 100%; /* Full width on smaller screens */
+    }
   }
