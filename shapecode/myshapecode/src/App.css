@@ -455,7 +455,7 @@ h2 {
    max-width: 100%;
    float: left;
    margin-left: -10px;
-   margin-top: -300px!important;;
+   margin-top: -330px!important;;
 
   }
   .hero--section--img-mobile2 {
@@ -465,7 +465,7 @@ h2 {
     max-width: 100%;
      float:right;
    margin-right: -70px;
-   margin-top: -300px!important;
+   margin-top: -330px!important;
 
   }
   .hero--section--img> img,
@@ -493,7 +493,7 @@ h2 {
   }
 
   .hero--section--title {
-    margin-top: 100px!important; /* Adjust the margin for mobile */
+    margin-top: 10px!important; /* Adjust the margin for mobile */
   }
   .hero--section--img-mobile,
   .hero--section--img-mobile2 {
