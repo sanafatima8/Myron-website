@@ -84,7 +84,7 @@ export default function MySkills() {
     slidesToShow: 1,
     slidesToScroll: 1,
     centerMode: true,
-    centerPadding: '25%',
+    centerPadding: '34%',
     beforeChange: (current, next) => setActiveIndex(next),
     appendDots: dots => renderDots(dots),
   };
