@@ -10,21 +10,18 @@ const typedStrings = [' Unveiling the Synthesis of <br /> Design and Technology'
 
 export default function HeroSection() {
   
-  const [startTyping, setStartTyping] = useState(false);
-  const [ref, inView] = useInView({
+  const [textRef, textInView] = useInView({
     triggerOnce: true,
     rootMargin: '0px 0px -50px 0px',
   });
+  const [animateText, setAnimateText] = useState(false);
+
 
   useEffect(() => {
-    if (inView) {
-      setStartTyping(true);
-    } else {
-      setStartTyping(false);
+    if (textInView) {
+      setAnimateText(true);
     }
-  }, [inView]);
-
-
+  }, [textInView]);
   
   
   
@@ -58,10 +55,11 @@ export default function HeroSection() {
           >
             <h1 className="hero--section--title"></h1>
           </Typed> */}
+<h1 ref={textRef} className={`hero--section--title  ${animateText ? 'visible' : ''}`}>Unveiling the Synthesis of <br /> Design and Technology</h1>
 
 
 
-
+{/* 
           <div ref={ref}>
           <Typed
             strings={typedStrings}
@@ -72,7 +70,7 @@ export default function HeroSection() {
             start={startTyping}
             className='hero--section--title'
           />
-        </div>
+        </div> */}
 
 
         </div>

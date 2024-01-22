@@ -328,9 +328,25 @@ h2 {
   font-size: 30px;
   font-weight: 700;
   line-height: 48px;
-
+  opacity: 0; 
  
 }
+
+.hero--section--title.visible {
+  animation: fadeIn 5s ease-in-out forwards; 
+}
+
+@keyframes fadeIn {
+  0% {
+    transform: translateX(-100%); 
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0); 
+    opacity: 1;
+  }
+}
+
 
 .first-container {
   display: flex;
